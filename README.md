@@ -133,7 +133,7 @@ TensorFlowSharpプラグインは[こちら](https://s3.amazonaws.com/unity-ml-a
  2. `<env_name>.bytes`を`python/models/hill_climbing/`から`unity-environment/Assets/ML-Agents/Examples/CartPoleSample/TFModels/`に移動します．
 3. Unity Editorを開き，上述のようにして`CartPoleSample`シーンを選択します．
 4. Scene hierarchyから`CartPoleBrain`オブジェクトを選択します．
-5. `Type of Brain`を`Internal`に変更します．
+5. `Brain Type`を`Internal`に変更します．
 6. EditorのProjectウィンドウから`<env_name>.bytes`ファイルを`CartPoleBrain` Inspector ウィンドウの`Graph Model` placeholderにドラッグします．
 7. Editorの上部にあるPlayボタンを押します．
 
