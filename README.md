@@ -1,6 +1,6 @@
 # Unity_RL
 ## このリポジトリについて
-技術書典4 き19 Rosenblock Chainersにて頒布を行った，【進化計算と強化学習の本３】の"Unityで強化学習を始めよう ~ML-AgentsでCartPole作成~"で用いたコードを公開しています．
+技術書典4 き19 Rosenblock Chainersにて頒布を行った，【進化計算と強化学習の本３】の"Unityで強化学習を始めよう 〜ML-AgentsでCartPole作成〜"で用いたコードを公開しています．
 
 [Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents)を用いて作成したCartPole環境シーン，および学習に用いるpythonコードを公開しています．
 
@@ -104,3 +104,37 @@ TensorBoardによって，以下の推移が確認できます．
 * best_total_reward：それまでの反復の中で最も良かった平均累積報酬
 * episode_length：エピソードの長さ
 * num_episode：エピソードの総数
+
+
+## 学習済みモデルのテスト
+学習を実行した際に生成された学習済みモデルを**Internal**タイプのBrainで使用するには，以下の手順を行ってください．
+
+### TensorFlowSharpプラグインのセットアップ
+1. TensorFlowSharpプラグインが`Assets`にあることを確認します．
+TensorFlowSharpプラグインは[こちら](https://s3.amazonaws.com/unity-ml-agents/0.3/TFSharpPlugin.unitypackage)からダウンロードできます．
+ダウンロードしたファイルをダブルクリックしてインポートします．
+正常にインストールされたかどうかは，`Assets` -> `ML-Agents` -> `Plugins` -> `Computer`のProjectタブのTensorFlowSharpファイルをチェックすることで確認できます．
+2. `Edit` -> `Project Settings` -> `Player`へ移動します．
+3. ターゲットとなるプラットフォームごとに
+（**`PC, Mac and Linux Standalone`**，**`iOS`** or **`Android`**）:
+    1. `Other Settings`に進みます．
+    2. `Scripting Runtime Version`を`Experimental (.NET 4.6 Equivalent)`にします．
+    3. `Scripting Defined Symbols`に，`ENABLE_TENSORFLOW`フラグを追加します．
+    入力後，Enterキーを押します．
+4. `File` -> `Save Project`．
+5. Unity Editorを再起動します．
+
+![tensorflowsharp](images/tensorflowsharp.png)
+
+### 学習済みモデルをUnityへインポート
+1. 学習済みモデルは，`Unity_RL`フォルダ内の`models/<run-identifier>`に保存されます．
+学習が完了すると，`<env_name>.bytes`ファイルがフォルダ内にあります．
+`<env_name>`は学習中に使用される実行ファイル名です．
+ 2. `<env_name>.bytes`を`python/models/hill_climbing/`から`unity-environment/Assets/ML-Agents/Examples/CartPoleSample/TFModels/`に移動します．
+3. Unity Editorを開き，上述のようにして`CartPoleSample`シーンを選択します．
+4. Scene hierarchyから`CartPoleBrain`オブジェクトを選択します．
+5. `Type of Brain`を`Internal`に変更します．
+6. EditorのProjectウィンドウから`<env_name>.bytes`ファイルを`CartPoleBrain` Inspector ウィンドウの`Graph Model` placeholderにドラッグします．
+7. Editorの上部にあるPlayボタンを押します．
+
+![brain_internal](images/brain_internal.png)
