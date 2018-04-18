@@ -2,7 +2,7 @@
 ## このリポジトリについて
 技術書典4 き19 Rosenblock Chainersにて頒布を行った，【進化計算と強化学習の本３】の"Unityで強化学習を始めよう 〜ML-AgentsでCartPole作成〜"で用いたコードを公開しています．
 
-[Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents)を用いて作成したCartPole環境シーン，および学習に用いるpythonコードを公開しています．
+[Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents)を用いて作成した[CartPole](https://en.wikipedia.org/wiki/Inverted_pendulum)環境シーン，および学習に用いるpythonコードを公開しています．
 
 ![CartPoleSample](images/cartpole.png)
 
@@ -143,11 +143,15 @@ TensorFlowSharpプラグインは[こちら](https://s3.amazonaws.com/unity-ml-a
 1. 学習済みモデルは，`Unity_RL`フォルダ内の`models/<run-identifier>`に保存されます．
 学習が完了すると，`<env_name>.bytes`ファイルがフォルダ内にあります．
 `<env_name>`は学習中に使用される実行ファイル名です．
- 2. `<env_name>.bytes`を`python/models/hill_climbing/`から`unity-environment/Assets/ML-Agents/Examples/CartPoleSample/TFModels/`に移動します．
+2. `<env_name>.bytes`を`python/models/hill_climbing/`から`unity-environment/Assets/ML-Agents/Examples/CartPoleSample/TFModels/`に移動します．
+※ 本リポジトリには，サンプルのモデルファイルである`CartPoleSample_hill_climbing.byte`が既に`unity-environment/Assets/ML-Agents/Examples/CartPoleSample/TFModels/`内に用意されています．
+新しく作ったモデルファイルとファイル名が被ってしまった場合には，削除するなりしてください．
 3. Unity Editorを開き，上述のようにして`CartPoleSample`シーンを選択します．
 4. Scene hierarchyから`CartPoleBrain`オブジェクトを選択します．
 5. `Brain Type`を`Internal`に変更します．
 6. EditorのProjectウィンドウから`<env_name>.bytes`ファイルを`CartPoleBrain` Inspector ウィンドウの`Graph Model` placeholderにドラッグします．
 7. Editorの上部にあるPlayボタンを押します．
+
+Unity EditorのGameビューでPole（棒）を倒立させるようにCartが動いていれば（あるいは，動きが緻密すぎてほとんど動いていないように見えることもあります）成功です！
 
 ![brain_internal](images/brain_internal.png)
