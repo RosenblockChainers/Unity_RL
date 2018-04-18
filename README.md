@@ -93,7 +93,7 @@ python3 python/run_hill_climbing.py <env_file_path> --run_id=<run-identifier> --
 
 このサンプルプログラムは，デフォルトの引数では，以下のような非常にシンプルな政策モデルを学習させます．
 
-![Policy Math](images/policy_math.png)
+<img src="images/policy_math.png" width="300px">
 
 実行時に指定できるオプションについては，`python3 python/run_hill_climbing.py --help`コマンドで参照することができます．
 
@@ -115,6 +115,8 @@ TensorBoardによって，以下の推移が確認できます．
 * best_total_reward：それまでの反復の中で最も良かった平均累積報酬
 * episode_length：エピソードの長さ
 * num_episode：エピソードの総数
+
+![TensorBoard](images/tensorboard.png)
 
 
 ## 学習済みモデルのテスト
