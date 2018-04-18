@@ -24,7 +24,7 @@ Unityは，[公式サイト](https://unity3d.com/jp)からダウンロードし�
 学習アルゴリズムは，Python3系で動作します．
 主に，以下のライブラリが必要になります．
 
-* Tensorflow
+* TensorFlow
 * Numpy
 * Pillow
 
@@ -38,6 +38,8 @@ Unityは，[公式サイト](https://unity3d.com/jp)からダウンロードし�
 cd python
 pip3 install -r requirement.txt
 ```
+
+上記のコマンドを打っても`TensorFlow`などのインストールに失敗した場合，[Unity公式によるインストール手順](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Installation.md)を参考にしてみてください．
 
 
 ## 学習実行
@@ -77,6 +79,9 @@ CartPoleSample環境でエージェントの学習を実行させる場合，以
 ![Build Window](images/build.png)
 
 ### 学習を実行
+#### 山登り法による学習
+本リポジトリには，政策モデルのパラメータを[山登り法](https://en.wikipedia.org/wiki/Hill_climbing)によって探索する`run_hill_climbing.py`というPythonプログラムがサンプルとして実装されています．
+
 学習を実行するためには，以下のコマンドを実行してください．
 
 ```python
@@ -86,10 +91,16 @@ python3 python/run_hill_climbing.py <env_file_path> --run_id=<run-identifier> --
 `--train`フラグはML-Agentsに学習モードで実行するように指定します．
 `env_file_path`はさきほどビルドした実行ファイルへのパスでなければなりません．
 
+このサンプルプログラムは，デフォルトの引数では，以下のような非常にシンプルな政策モデルを学習させます．
+
+![Policy Math](images/policy_math.png)
+
+実行時に指定できるオプションについては，`python3 python/run_hill_climbing.py --help`コマンドで参照することができます．
+
 
 ### 学習ログの推移確認
 TensorBoardを利用することで，学習時に累積報酬やエピソードの長さがどのように変動しているかを確認することができます．
-以下のコマンドを実行すると，tensorboardが起動します．
+以下のコマンドを実行すると，TensorBoardが起動します．
 
 ```
 tensorboard --logdir=summaries
