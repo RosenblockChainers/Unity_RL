@@ -6,6 +6,10 @@
 
 ![CartPoleSample](images/cartpole.png)
 
+## 動画
+以下のサムネ画像は，ML-Agentsを用いて作成したCartPole環境をエージェントが学習している様子を確認できる動画へのリンクです．
+
+[![](http://img.youtube.com/vi/mH33VywXPOQ/0.jpg)](http://www.youtube.com/watch?v=mH33VywXPOQ)
 
 ## 【進化計算と強化学習の本３】を持っている方向け
 CartPole環境シーンを自分で作成する場合，【進化計算と強化学習の本３】に詳細な手順が示されているので，そちらを参考に進めてください．
