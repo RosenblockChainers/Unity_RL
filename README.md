@@ -1,4 +1,4 @@
-# unity-rl
+# Unity_RL
 ## このリポジトリについて
 技術書典4 き19 Rosenblock Chainersにて頒布を行った，【進化計算と強化学習の本３】の"Unityで強化学習を始めよう 〜ML-AgentsでCartPole作成〜"で用いたコードを公開しています．
 
