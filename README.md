@@ -1,6 +1,6 @@
 # Unity_RL
 ## このリポジトリについて
-技術書典4 き19 Rosenblock Chainersにて頒布を行った，【進化計算と強化学習の本３】の"Unityで強化学習を始めよう 〜ML-AgentsでCartPole作成〜"で用いたコードを公開しています．
+技術書典4 き19 Rosenblock Chainersにて頒布を行った，[【進化計算と強化学習の本３】の"Unityで強化学習を始めよう 〜ML-AgentsでCartPole作成〜"](https://rosenblock.booth.pm/items/828558)で用いたコードを公開しています．
 
 [Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents)を用いて作成した[CartPole](https://en.wikipedia.org/wiki/Inverted_pendulum)環境シーン，および学習に用いるpythonコードを公開しています．
 
